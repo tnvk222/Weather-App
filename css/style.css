@@ -1,3 +1,10 @@
+body{
+    background-color: #121a24;
+}
+header, section{
+    background-color: #263547;
+    border-radius: 25px;
+}
 
 main{
     display: grid;
