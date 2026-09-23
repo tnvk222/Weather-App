@@ -48,3 +48,26 @@ main > * {
             grid-column: 2;
         }
     }
+/*ICONS STYLING*/
+.icon{
+    width: 100px;
+    height: 100px;
+}
+.weeklyIcon{
+     width: 40px;
+    height: 40px;
+}
+
+/*MAIN SECTIONS*/
+/*SEARCH BAR*/
+#searchBar{
+    width:100%;
+    height: 100%;
+    background-color: #2D3D52;
+    border: none;
+    border-radius: inherit;
+    padding-left: 20px;
+    font-size: 1rem;
+    color:white
+
+}
