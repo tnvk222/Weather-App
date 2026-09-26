@@ -71,3 +71,37 @@ main > * {
     color:white
 
 }
+/*CURRENT WEATHER*/
+.currentWeather{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color:white;
+    background-color: initial;
+    padding: 20px;
+
+}
+
+.cityDegreeDisplay{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+}
+#city{
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+#degreeNumber{
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+.cityDisplay p:nth-child(2){
+    font-size: 0.7rem;
+    color: rgb(201, 201, 201);
+
+}
+.cityDisplay p{
+    margin:0;
+    padding: 5px;
+}
