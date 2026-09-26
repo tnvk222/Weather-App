@@ -111,3 +111,30 @@ main > * {
     margin:0;
     padding: 5px;
 }
+/*TODAYS FORECAST SECTION*/
+.dailyIcon{
+    width: clamp(35px, 8vw, 60px);
+    height: auto;
+    flex-shrink: 0;
+}
+.todaysForecast ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    flex: 1; 
+}
+.todaysForecast ul li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(10px,2vw,18px);
+}
+.todaysForecast ul li span:nth-of-type(2){
+    font-weight: bold;
+}
+
