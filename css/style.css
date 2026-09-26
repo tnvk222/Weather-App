@@ -1,5 +1,11 @@
 body{
     background-color: #121a24;
+    color: rgb(222, 238, 255);
+    font-family: 'Tw Cen Mt',sans-serif;
+}
+h2{
+    margin-left: 15px;
+    font-size: clamp(1rem,2vw,1.5rem);
 }
 header, section{
     background-color: #263547;
