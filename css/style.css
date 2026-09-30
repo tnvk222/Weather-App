@@ -53,6 +53,9 @@ main > * {
             grid-row: 2 / 5;
             grid-column: 2;
         }
+        .airCondition h2{
+            margin-bottom: 40px;
+        }
     }
 /*ICONS STYLING*/
 .icon{
@@ -138,3 +141,31 @@ main > * {
     font-weight: bold;
 }
 
+
+/*AIR CONDITIONS SECTIONS*/
+dl{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: clamp(13px,2vw,25px);
+    padding: 0;
+    margin: 0;
+    padding-bottom: 15px;
+
+}
+
+dl > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(5px,1vw,10px);
+}
+ dd{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+ /* font-size: clamp(1.2rem,2vw,1.8rem); */
+
+/*WEEKLY FORECAST*/
