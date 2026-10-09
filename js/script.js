@@ -4,11 +4,12 @@ const fetchWeather = async (city) =>{
         const data = await locationSearch.json()
         console.log(data)
         if (!data.results || data.results.length == 0){
-            console.log ("could not fetch resources")
+            cityInput.textContent = "city not found"
             return
         }
         const latitude = data.results[0].latitude
         const longitude = data.results[0].longitude
+
     } catch (error) {
         console.log(error.message);
     }
@@ -17,4 +18,5 @@ const fetchWeather = async (city) =>{
     }
    
 }
-fetchWeather("Bujumbura")
+var cityInput = document.getElementById("city")
+
