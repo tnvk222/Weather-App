@@ -22,6 +22,17 @@ const fetchWeather = async (city) =>{
     }
    
 }
+const currentWeather = (weatherData) => {
+    console.log(weatherData)
+    let currentTemperature = weatherData.current.temperature_2m + "°"
+    let index = getIndex(weatherData)
+    let rain = weatherData.hourly.precipitation_probability[index] + "%"
+
+
+    rainChance.textContent = rain
+    currentDegree.textContent = currentTemperature
+    cityInput.textContent = citySearch.value.toLowerCase()
+}
 const getIndex = (weatherData) => {
     let time = weatherData.current.time
     console.log(time)
@@ -35,8 +46,13 @@ const getIndex = (weatherData) => {
 
 var cityInput = document.getElementById("city")
 var citySearch = document.getElementById("searchBar")
+var currentDegree = document.getElementById("currentDegree")
+var rainChance = document.getElementById("rainChance")
 var form  = document.getElementById("form")
 form.addEventListener("submit", async function(e){//"e is simply the parameter that lets us control and extract info from the event"
     e.preventDefault()
+    console.log(citySearch.value)
+    const weather = await fetchWeather(citySearch.value)
+    currentWeather(weather)
 })
 
