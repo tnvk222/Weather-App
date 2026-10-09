@@ -22,6 +22,16 @@ const fetchWeather = async (city) =>{
     }
    
 }
+const getIndex = (weatherData) => {
+    let time = weatherData.current.time
+    console.log(time)
+    let formattedTime = time.slice(0,13) + ":00"
+    console.log(formattedTime)
+    let index = weatherData.hourly.time.findIndex(time => time == formattedTime)
+    console.log(index)
+    return index
+}
+
 
 var cityInput = document.getElementById("city")
 var citySearch = document.getElementById("searchBar")
