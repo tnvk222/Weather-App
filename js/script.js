@@ -10,6 +10,10 @@ const fetchWeather = async (city) =>{
         const latitude = data.results[0].latitude
         const longitude = data.results[0].longitude
 
+        const weatherResponse = await fetch (`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=apparent_temperature,temperature_2m,wind_speed_10m,weather_code,is_day,uv_index&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code,precipitation_probability&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto`);
+        const weatherData = await weatherResponse.json()
+        return weatherData
+
     } catch (error) {
         console.log(error.message);
     }
