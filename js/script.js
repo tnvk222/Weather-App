@@ -22,5 +22,11 @@ const fetchWeather = async (city) =>{
     }
    
 }
+
 var cityInput = document.getElementById("city")
+var citySearch = document.getElementById("searchBar")
+var form  = document.getElementById("form")
+form.addEventListener("submit", async function(e){//"e is simply the parameter that lets us control and extract info from the event"
+    e.preventDefault()
+})
 
