@@ -74,6 +74,10 @@ const weeklyForecast = (weatherData) =>{
     plus18hoursDegree.textContent = weeklyArray[5].temperature + "°"
 
 }
+const airConditions = (weatherData) => {
+    realFeel.textContent = weatherData.current.apparent_temperature + "°"
+    windSpeed.textContent = weatherData.current.wind_speed_10m +" "+ weatherData.current_units.wind_speed_10m
+    UVIndex.textContent = weatherData.current.uv_index 
 
 }
 
@@ -97,6 +101,9 @@ var plus12hoursDegree  = document.getElementById("plus12hoursDegree")
 var plus15hoursDegree  = document.getElementById("plus15hoursDegree")
 var plus18hoursDegree  = document.getElementById("plus18hoursDegree")
 
+var realFeel = document.getElementById("realFeel")
+var windSpeed = document.getElementById("windSpeed")
+var UVIndex = document.getElementById("UVIndex")
 
 
 form.addEventListener("submit", async function(e){//"e is simply the parameter that lets us control and extract info from the event"
@@ -104,5 +111,6 @@ form.addEventListener("submit", async function(e){//"e is simply the parameter t
     const weather = await fetchWeather(citySearch.value)
     currentWeather(weather)
     weeklyForecast(weather)
+    airConditions(weather)
 })
 
