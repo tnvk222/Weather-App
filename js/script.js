@@ -41,35 +41,35 @@ const getIndex = (weatherData) => {
     return index
 }
 
-const weeklyForecast = (weatherData) =>{
+const hourlyForecast = (weatherData) =>{
     let time = weatherData.current.time
     let hourIndex = getIndex(weatherData)
-    let weeklyArray = []
+    let hourlyArray = []
     for (let index = 0; index < 6; index++) {
         hourIndex +=3
-        let weeklyTime = weatherData.hourly.time[hourIndex]
-        weeklyTime = new Date(weeklyTime)
-        let hour = weeklyTime.toLocaleTimeString("en-us", {
+        let hourlyTime = weatherData.hourly.time[hourIndex]
+        hourlyTime = new Date(hourlyTime)
+        let hour = hourlyTime.toLocaleTimeString("en-us", {
             hour12: true,
             hour: "numeric",
             minute: "numeric"
         })
-        let weeklyDegree = weatherData.hourly.temperature_2m[hourIndex]
-        weeklyArray.push({time : hour, temperature : weeklyDegree})
+        let hourlyDegree = weatherData.hourly.temperature_2m[hourIndex]
+        hourlyArray.push({time : hour, temperature : hourlyDegree})
     }
-    plus3hours.textContent = weeklyArray[0].time
-    plus6hours.textContent = weeklyArray[1].time
-    plus9hours.textContent = weeklyArray[2].time
-    plus12hours.textContent = weeklyArray[3].time
-    plus15hours.textContent = weeklyArray[4].time
-    plus18hours.textContent = weeklyArray[5].time
+    plus3hours.textContent = hourlyArray[0].time
+    plus6hours.textContent = hourlyArray[1].time
+    plus9hours.textContent = hourlyArray[2].time
+    plus12hours.textContent = hourlyArray[3].time
+    plus15hours.textContent = hourlyArray[4].time
+    plus18hours.textContent = hourlyArray[5].time
 
-    plus3hoursDegree.textContent = weeklyArray[0].temperature + "°"
-    plus6hoursDegree.textContent = weeklyArray[1].temperature + "°"
-    plus9hoursDegree.textContent = weeklyArray[2].temperature + "°"
-    plus12hoursDegree.textContent = weeklyArray[3].temperature + "°"
-    plus15hoursDegree.textContent = weeklyArray[4].temperature + "°"
-    plus18hoursDegree.textContent = weeklyArray[5].temperature + "°"
+    plus3hoursDegree.textContent = hourlyArray[0].temperature + "°"
+    plus6hoursDegree.textContent = hourlyArray[1].temperature + "°"
+    plus9hoursDegree.textContent = hourlyArray[2].temperature + "°"
+    plus12hoursDegree.textContent = hourlyArray[3].temperature + "°"
+    plus15hoursDegree.textContent = hourlyArray[4].temperature + "°"
+    plus18hoursDegree.textContent = hourlyArray[5].temperature + "°"
 
 }
 const airConditions = (weatherData) => {
@@ -109,7 +109,7 @@ form.addEventListener("submit", async function(e){//"e is simply the parameter t
     e.preventDefault()
     const weather = await fetchWeather(citySearch.value)
     currentWeather(weather)
-    weeklyForecast(weather)
+    hourlyForecast(weather)
     airConditions(weather)
 })
 
