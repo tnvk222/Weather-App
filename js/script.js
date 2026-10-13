@@ -78,6 +78,17 @@ const airConditions = (weatherData) => {
     UVIndex.textContent = weatherData.current.uv_index 
 
 }
+const weeklyForecast = (weatherData) => {
+    let weeklyArray = []
+    for (let index = 0; index < weatherData.daily.time.length; index++) {
+        let dateObj = weatherData.daily.time[index]
+        let day = new Date (dateObj).toLocaleDateString("en-us",
+            {weekday : "short"})
+        let maxTemperature = weatherData.daily.temperature_2m_max[index].toFixed(0)
+        let minTemperature = weatherData.daily.temperature_2m_min[index].toFixed(0)
+        weeklyArray.push({day, maxTemperature, minTemperature})
+    }
+}
 
 
 var cityInput = document.getElementById("city")
