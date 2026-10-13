@@ -88,6 +88,21 @@ const weeklyForecast = (weatherData) => {
         let minTemperature = weatherData.daily.temperature_2m_min[index].toFixed(0)
         weeklyArray.push({day, maxTemperature, minTemperature})
     }
+    day0.textContent = weeklyArray[0].day;
+    day1.textContent = weeklyArray[1].day;
+    day2.textContent = weeklyArray[2].day;
+    day3.textContent = weeklyArray[3].day;
+    day4.textContent = weeklyArray[4].day;
+    day5.textContent = weeklyArray[5].day;
+    day6.textContent = weeklyArray[6].day;
+
+    day0Degree.textContent = weeklyArray[0].maxTemperature + "°" + "/" + weeklyArray[0].minTemperature + "°"
+    day1Degree.textContent = weeklyArray[1].maxTemperature + "°" + "/" + weeklyArray[1].minTemperature + "°"
+    day2Degree.textContent = weeklyArray[2].maxTemperature + "°" + "/" + weeklyArray[2].minTemperature + "°"
+    day3Degree.textContent = weeklyArray[3].maxTemperature + "°" + "/" + weeklyArray[3].minTemperature + "°"
+    day4Degree.textContent = weeklyArray[4].maxTemperature + "°" + "/" + weeklyArray[4].minTemperature + "°"
+    day5Degree.textContent = weeklyArray[5].maxTemperature + "°" + "/" + weeklyArray[5].minTemperature + "°"
+    day6Degree.textContent = weeklyArray[6].maxTemperature + "°" + "/" + weeklyArray[6].minTemperature + "°"
 }
 
 
@@ -115,6 +130,24 @@ var realFeel = document.getElementById("realFeel")
 var windSpeed = document.getElementById("windSpeed")
 var UVIndex = document.getElementById("UVIndex")
 
+var day0 = document.getElementById("day0")
+var day1 = document.getElementById("day1")
+var day2 = document.getElementById("day2")
+var day3 = document.getElementById("day3")
+var day4 = document.getElementById("day4")
+var day5 = document.getElementById("day5")
+var day6 = document.getElementById("day6")
+
+var day0Degree = document.getElementById("day0Degree")
+var day1Degree = document.getElementById("day1Degree")
+var day2Degree = document.getElementById("day2Degree")
+var day3Degree = document.getElementById("day3Degree")
+var day4Degree = document.getElementById("day4Degree")
+var day5Degree = document.getElementById("day5Degree")
+var day6Degree = document.getElementById("day6Degree")
+
+
+
 
 form.addEventListener("submit", async function(e){//"e is simply the parameter that lets us control and extract info from the event"
     e.preventDefault()
@@ -122,5 +155,6 @@ form.addEventListener("submit", async function(e){//"e is simply the parameter t
     currentWeather(weather)
     hourlyForecast(weather)
     airConditions(weather)
+    weeklyForecast(weather)
 })
 
