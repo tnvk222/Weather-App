@@ -59,6 +59,21 @@ const weeklyForecast = (weatherData) =>{
         let weeklyDegree = weatherData.hourly.temperature_2m[hourIndex]
         weeklyArray.push({time : hour, temperature : weeklyDegree})
     }
+    plus3hours.textContent = weeklyArray[0].time
+    plus6hours.textContent = weeklyArray[1].time
+    plus9hours.textContent = weeklyArray[2].time
+    plus12hours.textContent = weeklyArray[3].time
+    plus15hours.textContent = weeklyArray[4].time
+    plus18hours.textContent = weeklyArray[5].time
+
+    plus3hoursDegree.textContent = weeklyArray[0].temperature + "°"
+    plus6hoursDegree.textContent = weeklyArray[1].temperature + "°"
+    plus9hoursDegree.textContent = weeklyArray[2].temperature + "°"
+    plus12hoursDegree.textContent = weeklyArray[3].temperature + "°"
+    plus15hoursDegree.textContent = weeklyArray[4].temperature + "°"
+    plus18hoursDegree.textContent = weeklyArray[5].temperature + "°"
+
+}
 
 }
 
@@ -66,12 +81,28 @@ const weeklyForecast = (weatherData) =>{
 var cityInput = document.getElementById("city")
 var citySearch = document.getElementById("searchBar")
 var currentDegree = document.getElementById("currentDegree")
-var rainChance = document.getElementById("rainChance")
 var form  = document.getElementById("form")
+
+var plus3hours = document.getElementById("plus3hours")
+var plus6hours = document.getElementById("plus6hours")
+var plus9hours = document.getElementById("plus9hours")
+var plus12hours = document.getElementById("plus12hours")
+var plus15hours = document.getElementById("plus15hours")
+var plus18hours = document.getElementById("plus18hours")
+
+var plus3hoursDegree = document.getElementById("plus3hoursDegree")
+var plus6hoursDegree  = document.getElementById("plus6hoursDegree")
+var plus9hoursDegree  = document.getElementById("plus9hoursDegree")
+var plus12hoursDegree  = document.getElementById("plus12hoursDegree")
+var plus15hoursDegree  = document.getElementById("plus15hoursDegree")
+var plus18hoursDegree  = document.getElementById("plus18hoursDegree")
+
+
+
 form.addEventListener("submit", async function(e){//"e is simply the parameter that lets us control and extract info from the event"
     e.preventDefault()
-    console.log(citySearch.value)
     const weather = await fetchWeather(citySearch.value)
     currentWeather(weather)
+    weeklyForecast(weather)
 })
 
