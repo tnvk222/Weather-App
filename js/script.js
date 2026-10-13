@@ -49,9 +49,15 @@ const weeklyForecast = (weatherData) =>{
     let weeklyArray = []
     for (let index = 0; index < 6; index++) {
         hourIndex +=3
-        let weeklyTime = weatherData.hourly.time[hourIndex].slice(11)
+        let weeklyTime = weatherData.hourly.time[hourIndex]
+        weeklyTime = new Date(weeklyTime)
+        let hour = weeklyTime.toLocaleTimeString("en-us", {
+            hour12: true,
+            hour: "numeric",
+            minute: "numeric"
+        })
         let weeklyDegree = weatherData.hourly.temperature_2m[hourIndex]
-        weeklyArray.push({time : weeklyTime, temperature : weeklyDegree})
+        weeklyArray.push({time : hour, temperature : weeklyDegree})
     }
 
 }
