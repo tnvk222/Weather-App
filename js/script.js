@@ -23,23 +23,21 @@ const fetchWeather = async (city) =>{
    
 }
 const currentWeather = (weatherData) => {
-    console.log(weatherData)
     let currentTemperature = weatherData.current.temperature_2m + "°"
     let index = getIndex(weatherData)
     let rain = weatherData.hourly.precipitation_probability[index] + "%"
 
 
-    rainChance.textContent = rain
+    rainChance[0].textContent = rain
+    rainChance[1].textContent = rain
     currentDegree.textContent = currentTemperature
     cityInput.textContent = citySearch.value.toLowerCase()
 }
 const getIndex = (weatherData) => {
     let time = weatherData.current.time
-    console.log(time)
     let formattedTime = time.slice(0,13) + ":00"
     console.log(formattedTime)
     let index = weatherData.hourly.time.findIndex(time => time == formattedTime)
-    console.log(index)
     return index
 }
 
@@ -85,6 +83,7 @@ const airConditions = (weatherData) => {
 var cityInput = document.getElementById("city")
 var citySearch = document.getElementById("searchBar")
 var currentDegree = document.getElementById("currentDegree")
+var rainChance = document.getElementsByClassName("rainChance")
 var form  = document.getElementById("form")
 
 var plus3hours = document.getElementById("plus3hours")
