@@ -43,6 +43,19 @@ const getIndex = (weatherData) => {
     return index
 }
 
+const weeklyForecast = (weatherData) =>{
+    let time = weatherData.current.time
+    let hourIndex = getIndex(weatherData)
+    let weeklyArray = []
+    for (let index = 0; index < 6; index++) {
+        hourIndex +=3
+        let weeklyTime = weatherData.hourly.time[hourIndex].slice(11)
+        let weeklyDegree = weatherData.hourly.temperature_2m[hourIndex]
+        weeklyArray.push({time : weeklyTime, temperature : weeklyDegree})
+    }
+
+}
+
 
 var cityInput = document.getElementById("city")
 var citySearch = document.getElementById("searchBar")
